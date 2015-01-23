@@ -1,0 +1,22 @@
+<h1>Hello!</h1>
+
+<p>Enter new Stylist:</p>
+
+<form action="/stylists" method="post">
+  <label for="stylist">Assign a stylist to your hair salon:</label>
+  <input id="stylist" name="stylist" type="text">
+
+  <button type="submit">Add stylist</button>
+</form>
+
+<% if @hair_salon.any?() %>
+  <p>Click on a list to see there clients and styles:</p>
+
+  <ul>
+    <% @hair_salon.each do |style| %>
+      <li><a href="/hair_salon/<%= style.stylist_id() %>"><%= style.name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no stylists yet!</p>
+<% end %>

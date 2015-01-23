@@ -14,7 +14,7 @@
 
   <ul>
     <% @hair_salon.each do |style| %>
-      <li><a href="/hair_salon/<%= style.stylist_id() %>"><%= style.name() %></a></li>
+      <li><a href="/stylist/<%= style.stylist_id() %>"><%= style.name() %></a></li>
     <% end %>
   </ul>
 <% else %>

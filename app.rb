@@ -12,7 +12,7 @@ get ("/") do
 end
 
 post("/stylists") do
-  name = params.fetch("stylist")
+  name = params.fetch("stylist1")
   new_stylist = Stylist.new({:name => name, :id => nil})
   new_stylist.save()
   @hair_salon = Stylist.all()

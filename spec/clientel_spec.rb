@@ -9,7 +9,7 @@ describe(Client) do
 
   describe("#save") do
     it("adds a task to the array of saved tasks") do
-      test_client = Client.new({:clients => "Phil", :list_id => 1})
+      test_client = Client.new({:clients => "christ", :list_id => 1})
       test_client.save()
       expect(Client.all()).to(eq([test_client]))
     end

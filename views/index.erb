@@ -3,20 +3,20 @@
 <p>Enter new Stylist:</p>
 
 <form action="/stylists" method="post">
-  <label for="stylist1">Assign a stylist to your hair salon:</label>
-  <input id="stylist1" name="stylist1" type="text">
+  <label for="name">Assign a stylist to your hair salon:</label>
+  <input id="name" name="name" type="text">
 
   <button type="submit">Add stylist</button>
 </form>
 
-<% if @hair_salon.any?() %>
-  <p>Click on a list to see there clients and styles:</p>
+<% if @stylists.any?() %>
+  <p>Click on a hair stylist to see their clients:</p>
 
   <ul>
-    <% @hair_salon.each do |style| %>
-      <li><a href="/stylist/<%= style.id() %>"><%= style.name() %></a></li>
+    <% @stylists.each() do |hair_styler| %>
+      <li><a href="/stylist/<%= hair_styler.id() %>"><%= hair_styler.name() %></a></li>
     <% end %>
   </ul>
 <% else %>
-  <p>There are no stylists yet!</p>
+  <p>There are hair cutters yet!</p>
 <% end %>

@@ -8,13 +8,13 @@ class Client
 
   define_singleton_method(:all) do
     returned_clients = DB.exec("SELECT * FROM patrons;")
-    clients = []
+    clients_array = []
     returned_clients.each() do |client|
       clients = client.fetch("clients")
       list_id = client.fetch("list_id").to_i()
-      clients.push(Client.new({:clients => clients, :list_id => list_id}))
+      clients_array.push(Client.new({:clients => clients, :list_id => list_id}))
     end
-    clients
+    clients_array
   end
 
   define_method(:save) do

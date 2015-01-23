@@ -1,1 +1,24 @@
-<h1>Some of the styles <%= @hair_salon.name() %>  </h1>
+<h1>Add a patron to <%= @patron.name() %> </h1>
+
+<form action="/patron" method="post">
+  <input id="list_id" name="list_id" type="hidden" value="<%= @patron.id() %>">
+
+  <label for="description">Client name :</label>
+  <input id="description" name="description" type="text">
+
+  <button type="submit">Add task</button>
+</form>
+
+<% if @patron.clients().any?() %>
+  <h3>Here are all of the clients:</h3>
+
+  <ul>
+    <% @patron.clients().each() do |task| %>
+      <li><%= task.clients() %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no customers yet!</p>
+<% end %>
+
+<a href="/">Return to Main Page</a>
